@@ -1,0 +1,30 @@
+{
+  "name": "Angular-Tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "lite-server": "^2.3.0"
+  },
+  
+  "dependencies": {
+    "jasmine": "^2.8.0",
+    "karma-cli": "^1.0.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma": "^1.7.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-firefox-launcher": "^1.0.1"
+  },
+  "description": ""
+}

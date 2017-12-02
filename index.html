@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+   
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/app2.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/controller.js"></script>
+
+<script src="js/app3.js"></script>
+<script src="js/app3.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/zoom.css">
+ <link rel="stylesheet" href="css/submenu.css">    
+ 
+</head>
+<!-- NAVBAR
+================================================== -->
+
+ <body ng-app="shopapp" >
+   
+    <div class="navbar-wrapper" ng-controller="myctrl">
+      <div class="container">
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container" >
+            <div class="navbar-header" >
+              <button style="color: black;" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">{{brand}}</a>
+            </div>
+            
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+               
+                <li ng-repeat="menu in menudata" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{menu.name}} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    
+                    <li ng-repeat="cat in menu.category" class="dropdown-header">{{cat.name}}
+                    <ul style="list-style: none;">
+                    <li ng-repeat="submenu in cat.submenu"><a style="text-decoration:none;color: grey"  href="{{submenu.url}}">{{submenu.name}}</a></li>
+                    </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+<div ng-controller="myctrl2">
+<!-- Carousel
+    ================================================== -->
+    <div  id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+          <li data-target="#myCarousel" data-slide-to="5"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox"  ng-repeat="cat in imagedata.data.GrpImgs.category|limitTo :1:0">
+        <div class="item active">
+             
+                <div ng-repeat="image in cat.images|limitTo :1:0">
+                 <img class="first-slide"  ng-src="{{image.url}}" alt="First slide" style="width: 100%"></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p></p>
+              <p><a class="btn btn-lg btn-secondary" href="#" role="button" style="background-color: white;color: black;font-size: 10px;width: 100px" >Know More</a>
+                <a class="btn btn-lg btn-primary" href="#" role="button" style="background-color: white;font-size: 10px;width: 100px;color: black">Shop Men</a>
+                <a class="btn btn-lg btn-primary" href="#" role="button" style="background-color: white;font-size: 10px;width: 100px;color: black">Shop Women</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+            <div  ng-repeat="image in cat.images|limitTo :1:1">
+                <img class="second-slide"  ng-src="{{image.url}}" alt="Second slide" style="width: 100%"></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item"> <div  ng-repeat="image in cat.images|limitTo :1:2">
+          <img class="third-slide"  ng-src="{{image.url}}"style="width: 100%" ></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p> </p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" style="background-color: black;font-size: 10px;width: 100px">Shop Velvet Rope</a></p>
+            </div>
+          </div>
+        </div>
+           <div class="item"> <div  ng-repeat="image in cat.images|limitTo :1:3">
+          <img class="fourth-slide"  ng-src="{{image.url}}" style="width: 100%"></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" ></a></p>
+            </div>
+          </div>
+        </div>
+         <div class="item"> <div  ng-repeat="image in cat.images|limitTo :1:4">
+          <img class="fifth-slide"  ng-src="{{image.url}}" style="width: 100%"></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" ></a></p>
+            </div>
+          </div>
+        </div>
+         <div class="item"> <div  ng-repeat="image in cat.images|limitTo :1:5">
+          <img class="sixth-slide"  ng-src="{{image.url}}" style="width: 100%"></div>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1></h1>
+              <p></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" ></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+    
+    
+    
+    
+<!-- TRENDING NOW   -->
+<div id="tour" class="bg-1">
+  <div class="container-fluid text-center" ng-repeat="cat in imagedata.data.GrpImgs.category|limitTo :1:1">
+      <h3 class="text-center"><b>{{cat.name}}</b></h3>
+   
+
+    <div class="row text-center  ">
+      <div class="col-sm-4 " style="padding: 0;border:none;">
+       <div ng-repeat="image in cat.images|limitTo :1:0">
+         <div class="thumbnail zoom" >
+       <img class="img-responsive " ng- src="{{image.url}}" alt="Paris" style="width:100%" height="300">
+           </div>     <h><strong><b>{{image.name}}</b></strong></h>
+           <br>  <a  onMouseOver="this.style.color='red'" onMouseOut="this.style.color='black'" data-toggle="modal" data-target="#myModal"style="color:black" href="">SHOP VIKKY</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a  onMouseOver="this.style.color='red'" onMouseOut="this.style.color='black'" data-toggle="modal" data-target="#myModal" style="color:black" href="#imgAdrs">SHOP SPORTSTYLE</a></div>
+<!--    <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>-->
+      
+      </div>
+      <div class="col-sm-4 " style="padding: 0;border:none;">
+    
+        
+       <div ng-repeat="image in cat.images|limitTo :1:1">
+        <div class="thumbnail zoom"  >
+        <img class="img-responsive " ng-src="{{image.url}}" alt="New York"style="width:100%" height="300">
+            </div>  <h><strong><b>{{image.name}}</b></strong></h>
+            <br><a  onMouseOver="this.style.color='red'" onMouseOut="this.style.color='black'" style="color:black" href="">SHOP VIKKY</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a  onMouseOver="this.style.color='red'" onMouseOut="this.style.color='black'" style="color:black" href="#imgAdrs">SHOP SPORTSTYLE</a>
+        
+        </div>
+      </div>
+      <div class="col-sm-4 " style="padding: 0;border:none;">
+      
+      <div ng-repeat="image in cat.images|limitTo :1:2">
+      <div class="thumbnail zoom"  >
+       <img style="width:100%" class="img-responsive " ng-src="{{image.url}}" alt="San Francisco"  height="300">
+         </div>
+         <h><strong><b>{{image.name}}</b></strong></h>
+           <br>  <a style="color:black" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='black'" href="">SHOP VIKKY</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a  onMouseOver="this.style.color='red'" onMouseOut="this.style.color='black'" style="color:black" href="#imgAdrs">SHOP SPORTSTYLE</a>
+<!--          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>-->
+          </div></div>
+      </div>
+    </div>
+    </div>
+    
+  <br>
+  <br>
+  <br>
+<!--  TRENDING NOW -->
+   
+   <!-- NEW ARRRIVALS  -->
+<div id="tour" class="bg-1">
+  <div class="container-fluid text-center" ng-repeat="cat in imagedata.data.GrpImgs.category|limitTo :1:2">
+      <h3 class="text-center"><b>{{cat.name}}</b></h3>
+   
+
+    <div class="row text-center  ">
+      <div class="col-sm-2 " style="padding: 0;border:none ;float:right;" ng-repeat="image in cat.images">
+       
+        
+       <img class="img-responsive "  ng-src="{{image.url}}" alt="Paris" style="width:50%" >
+              <h5 style="float: left"><small>{{image.name}} <br>Running Shoes</small>
+     <br><br>  <a    data-toggle="modal" data-target="#myModal"style="color:red; text-decoration:none;" href="">{{image.price}}</a> 
+          </h5>
+      </div>
+     
+    </div>
+    
+    </div>
+    </div>
+    
+  
+<!-- NEW ARRIVALS -->
+  
+   <br>
+   <br>
+   <br>
+   <div ng-repeat="cat in imagedata.data.GrpImgs.category|limitTo :1:3">
+    <div ng-repeat="image in cat.images"><img class="img-responsive "  style="margin-left: 80px;margin-bottom: 0px;" ng-src="{{image.url}}" >
+   </div>
+  </div>
+ <br>
+  <br>
+  <br>
+  <br>
+  <div class="hideBr">
+  
+   
+  
+  
+  </div>
+  
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div ng-repeat="cat in imagedata.data.GrpImgs.category|limitTo :1:4">
+ <h3 class="text-center"><b>{{cat.name}}</b></h3>
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="text-center">
+            <div style="padding: 0;border:none;" class="col-lg-4" ng-repeat="image in cat.images">
+              <div class="thumbnail zoom">   <img class="img-responsive  center-block " style="width:60%;height: 20%" class="img-circle" ng-src="{{image.url}}" alt="Generic placeholder image" width="140" height="140">
+             
+                </div>
+                </div>
+            <!-- /.col-lg-4 -->
+          
+            <!-- /.col-lg-4 -->
+        </div>
+        </div>
+    </div>
+          </div>
+          
+        <!-- /.row -->
+           <br>
+    
+           <br>
+    <div ng-controller="myctrl3">
+ 
+ <div ng-repeat="video in videodata.data.videos">
+ <h3 class="text-center"><b>{{video.name}}</b></h3>
+ 
+ 
+
+       
+  <iframe class="img-responsive " style="margin-left: 150px;" width="900" height="500" src="https://www.youtube.com/embed/DvyBnqKIYrE" frameborder="0" allowfullscreen></iframe>
+</div>
+     </div>
+
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+   
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+   
+    <script src="../assets/js/holder/holder.js"></script>
+  </body>
+</html>
